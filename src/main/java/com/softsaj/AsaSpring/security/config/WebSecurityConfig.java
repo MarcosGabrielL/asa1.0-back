@@ -57,6 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
          http.authorizeRequests()
+                 .antMatchers("/comentarios/**").permitAll()
             .antMatchers("/users").authenticated()
             .anyRequest().permitAll()
             .and()
@@ -66,6 +67,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
             .and()
             .logout().logoutSuccessUrl("/").permitAll();
+         
+         http.csrf().disable();
     }
      
      

@@ -29,9 +29,9 @@ private int id;
 @Column(nullable = false)
 private String critica;
 @Column(nullable = false)
-private String id_movie;
+private String idmovie;
 @Column(nullable = false)
-private String ID_Cinefilo;
+private String idcinefilo;
 @Column(nullable = false)
 private String Data;
 @Column(nullable = false)
@@ -50,8 +50,8 @@ private String score;
     public Comentario(int id, String critica, String id_movie, String ID_Cinefilo, String Data, String Avaliação, String curtidas_1_estrela, String curtidas_2_estrela, String curtidas_3_estrela, String curtidas_4_estrela, String curtidas_5_estrela, String score) {
         this.id = id;
         this.critica = critica;
-        this.id_movie = id_movie;
-        this.ID_Cinefilo = ID_Cinefilo;
+        this.idmovie = id_movie;
+        this.idcinefilo = ID_Cinefilo;
         this.Data = Data;
         this.Avaliação = Avaliação;
         this.curtidas_1_estrela = curtidas_1_estrela;
@@ -78,20 +78,20 @@ private String score;
         this.critica = critica;
     }
 
-    public String getId_movie() {
-        return id_movie;
+    public String getIdmovie() {
+        return idmovie;
     }
 
-    public void setId_movie(String id_movie) {
-        this.id_movie = id_movie;
+    public void setIdmovie(String id_movie) {
+        this.idmovie = id_movie;
     }
 
-    public String getID_Cinefilo() {
-        return ID_Cinefilo;
+    public String getIDCinefilo() {
+        return idcinefilo;
     }
 
-    public void setID_Cinefilo(String ID_Cinefilo) {
-        this.ID_Cinefilo = ID_Cinefilo;
+    public void setIDCinefilo(String ID_Cinefilo) {
+        this.idcinefilo = ID_Cinefilo;
     }
 
     public String getData() {
