@@ -6,6 +6,7 @@
 package com.softsaj.AsaSpring.repositories;
 
 import com.softsaj.AsaSpring.models.Cinefilo;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CinefiloRepository extends JpaRepository<Cinefilo, Integer>{
     
+     Optional<Cinefilo> findCinefiloById(Integer id);
+     
+     void deleteCinefiloById(Integer id);
 }

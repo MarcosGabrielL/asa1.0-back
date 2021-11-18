@@ -51,7 +51,7 @@ public class ComentarioService {
           rp.deleteComentarioById(id);  
         }catch(DataIntegrityViolationException e){
             throw new DataIntegrityViolationException(
-                    "Não foi possivel deletar o Filme");
+                    "Não foi possivel deletar o Comentario");
         }
     }
 }

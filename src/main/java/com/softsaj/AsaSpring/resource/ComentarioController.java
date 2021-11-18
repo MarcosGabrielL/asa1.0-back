@@ -58,7 +58,8 @@ public class ComentarioController {
         return new ResponseEntity<>(comentario, HttpStatus.OK);
     }   
     
-    //Add comentario em video
+    //Add comentario em video By Cinefilo
+    //@PostMapping("/comentario/add/{idmovie}/inefilo/{idcinefilo}")
     @PostMapping("/comentario/add/{idmovie}")
     public ResponseEntity<Comentario> addMovie(
             @PathVariable("idmovie") String idmovie, @RequestBody Comentario comentario) {

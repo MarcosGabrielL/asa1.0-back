@@ -22,13 +22,10 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Cinefilo implements Serializable {
     
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)    
+@Id   
 private int id;
 @Column(nullable = false)
 private String user;
-@Column(nullable = false)
-private String password;
 @Column(nullable = false)
 private String email;
 @Column(nullable = false)
@@ -41,10 +38,9 @@ private String foto;
         super();
     }
 
-    public Cinefilo(int id, String user, String password, String email, String nome, String telefone, String idade, String foto) {
+    public Cinefilo(int id, String user, String email, String nome, String telefone, String idade, String foto) {
         this.id = id;
         this.user = user;
-        this.password = password;
         this.email = email;
         this.nome = nome;
         this.telefone = telefone;
@@ -66,14 +62,6 @@ private String foto;
 
     public void setUser(String user) {
         this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {

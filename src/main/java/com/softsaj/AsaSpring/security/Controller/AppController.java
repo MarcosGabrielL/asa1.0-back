@@ -9,8 +9,10 @@ package com.softsaj.AsaSpring.security.Controller;
  *
  * @author Marcos
  */
+import com.softsaj.AsaSpring.models.Cinefilo;
 import com.softsaj.AsaSpring.security.Repository.UserRepository;
 import com.softsaj.AsaSpring.security.models.User;
+import com.softsaj.AsaSpring.services.CinefiloService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -24,6 +26,9 @@ public class AppController {
     
     @Autowired
         private UserRepository userRepo;
+    
+    @Autowired
+    private CinefiloService vs;
 
     @GetMapping("")
     public String viewHomePage() {
@@ -44,6 +49,15 @@ public String processRegister(User user) {
     user.setPassword(encodedPassword);
      
     userRepo.save(user);
+    
+    //Cria Cinefilo
+    Cinefilo cinefilo = new Cinefilo();
+    cinefilo.setEmail(user.getEmail());
+    cinefilo.setId(user.getId().intValue());
+    cinefilo.setUser(user.getFirstName());
+    cinefilo.setNome(user.getFirstName()+" "+user.getLastName());
+    vs.addCinefilo(cinefilo);
+    
      
     return "registersuccess";
 }
