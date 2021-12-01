@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.softsaj.AsaSpring.security.Repository;
+package com.softsaj.AsaSpring.security;
 
 /**
  *
  * @author Marcos
  */
-import com.softsaj.AsaSpring.security.models.User;
+import com.softsaj.AsaSpring.security.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
  

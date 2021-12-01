@@ -3,36 +3,57 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.softsaj.AsaSpring.security.Controller;
+package com.softsaj.AsaSpring.security;
 
 /**
  *
  * @author Marcos
  */
 import com.softsaj.AsaSpring.models.Cinefilo;
-import com.softsaj.AsaSpring.security.Repository.UserRepository;
-import com.softsaj.AsaSpring.security.models.User;
+import com.softsaj.AsaSpring.security.UserRepository;
+import com.softsaj.AsaSpring.security.AuthRequest;
+import com.softsaj.AsaSpring.security.User;
+import com.softsaj.AsaSpring.security.JwtUtil;
 import com.softsaj.AsaSpring.services.CinefiloService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AppController {
     
     @Autowired
-        private UserRepository userRepo;
-    
+    private UserRepository userRepo;
     @Autowired
     private CinefiloService vs;
+    @Autowired
+    private JwtUtil jwtUtil;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @GetMapping("")
     public String viewHomePage() {
         return "index";
+    }
+
+     @PostMapping("/authenticate")
+    public String generateToken(@RequestBody AuthRequest authRequest) throws Exception {
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
+            );
+        } catch (Exception ex) {
+            throw new Exception("inavalid username/password");
+        }
+        return jwtUtil.generateToken(authRequest.getEmail());
     }
     
     @GetMapping("/register")

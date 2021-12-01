@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.softsaj.AsaSpring.security.models;
+package com.softsaj.AsaSpring.security;
 
 import java.util.Objects;
 import javax.persistence.*;
- 
+
+
 @Entity
 @Table(name = "users")
 public class User {

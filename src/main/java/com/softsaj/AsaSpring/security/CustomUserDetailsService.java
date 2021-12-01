@@ -3,19 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.softsaj.AsaSpring.security.service;
+package com.softsaj.AsaSpring.security;
 
 /**
  *
  * @author Marcos
  */
-import com.softsaj.AsaSpring.security.Repository.UserRepository;
-import com.softsaj.AsaSpring.security.models.User;
+import com.softsaj.AsaSpring.security.UserRepository;
+import com.softsaj.AsaSpring.security.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
- 
+import org.springframework.stereotype.Service;
+
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
  
     @Autowired
