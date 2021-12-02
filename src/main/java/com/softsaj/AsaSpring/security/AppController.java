@@ -27,7 +27,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@CrossOrigin(origins = "http://localhost:4200")
+@RestController
 public class AppController {
     
     @Autowired
@@ -39,13 +40,21 @@ public class AppController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+	
     @GetMapping("")
     public String viewHomePage() {
         return "index";
     }
 
+	
      @PostMapping("/authenticate")
     public String generateToken(@RequestBody AuthRequest authRequest) throws Exception {
+              
+        // BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    //String encodedPassword = passwordEncoder.encode(authRequest.getPassword());
+    //authRequest.setPassword(encodedPassword);
+      //  System.out.println("Senha: "+authRequest.getPassword());
+
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
@@ -64,10 +73,10 @@ public class AppController {
     }
 
 @PostMapping("/process_register")
-public String processRegister(User user) {
-    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-    String encodedPassword = passwordEncoder.encode(user.getPassword());
-    user.setPassword(encodedPassword);
+public String processRegister(@RequestBody User user) {
+   // BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    //String encodedPassword = passwordEncoder.encode(user.getPassword());
+    //user.setPassword(encodedPassword);
      
     userRepo.save(user);
     
