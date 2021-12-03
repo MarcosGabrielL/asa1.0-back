@@ -102,4 +102,11 @@ public String listUsers(Model model) {
     
     return "users";
 }
+
+ @GetMapping("/user/{email}")
+    public ResponseEntity<User> getUserByEmail (@PathVariable("email") String email) {
+        User user = userRepo.findByEmail(email);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
 }
