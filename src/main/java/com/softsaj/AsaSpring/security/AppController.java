@@ -95,7 +95,7 @@ public ResponseEntity<User> processRegister(@RequestBody User user) {
 }
 
     @GetMapping("/users")
-public String listUsers(Model model) {
+    public String listUsers(Model model) {
     List<User> listUsers = userRepo.findAll();
     model.addAttribute("listUsers", listUsers);
      
