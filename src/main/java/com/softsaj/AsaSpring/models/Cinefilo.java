@@ -5,16 +5,24 @@
  */
 package com.softsaj.AsaSpring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Marcos
  */
 @Entity
-@Table(name = "cinefilos")
-public class Cinefilo{
+public class Cinefilo implements Serializable{
     
 @Id   
 @Column(nullable = false, unique = true, length = 45)
