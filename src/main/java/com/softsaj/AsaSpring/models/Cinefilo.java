@@ -23,6 +23,7 @@ import javax.persistence.ManyToOne;
 public class Cinefilo implements Serializable {
     
 @Id   
+@GeneratedValue(strategy = GenerationType.IDENTITY)    
 private int id;
 @Column(nullable = false)
 private String user;
@@ -30,8 +31,11 @@ private String user;
 private String email;
 @Column(nullable = false)
 private String nome;
+@Column(nullable = true)    
 private String telefone;
+@Column(nullable = true)  
 private String idade;
+@Column(nullable = true)  
 private String foto;
 
     public Cinefilo() {
