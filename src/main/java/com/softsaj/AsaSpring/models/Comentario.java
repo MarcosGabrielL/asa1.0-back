@@ -5,8 +5,6 @@
  */
 package com.softsaj.AsaSpring.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,7 +19,7 @@ import javax.persistence.ManyToOne;
  * @author Marcos
  */
 @Entity
-public class Comentario implements Serializable {
+public class Comentario{
     
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)    
