@@ -22,9 +22,10 @@ import javax.persistence.ManyToOne;
  * @author Marcos
  */
 @Entity
-public class Cinefilo implements Serializable{
+public class Cinefilo{
     
 @Id   
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private int id;
 @Column(nullable = false)
 private String user;
