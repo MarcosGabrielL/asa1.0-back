@@ -1,6 +1,6 @@
 package com.softsaj.AsaSpring.models;
 
-mport java.util.Objects;
+import java.util.Objects;
 import javax.persistence.*;
 /**
  *
