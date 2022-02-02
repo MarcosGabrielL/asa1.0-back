@@ -6,7 +6,6 @@
 package com.softsaj.AsaSpring.models;
 
 import java.util.Objects;
-import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -14,7 +13,8 @@ import javax.persistence.*;
  * @author Marcos
  */
 @Entity
-public class Cinefilo implements Serializable {
+@Table(name = "cinefilos")
+public class Cinefilo{
     
 @Id   
 private int id;
