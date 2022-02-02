@@ -1,97 +1,92 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.softsaj.AsaSpring.models;
+
+mport java.util.Objects;
+import javax.persistence.*;
 /**
  *
  * @author Marcos
  */
 
-import java.util.Objects;
-import javax.persistence.*;
-
-
 @Entity
-@Table(name = "cinefilos")
+@Table(name = "cinefilo")
 public class Cinefilo {
-     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-     
-    @Column(nullable = false, unique = true, length = 45)
-    private String email;
-     
-    @Column(nullable = false, length = 64)
-    private String password;
-     
-    @Column(name = "first_name", nullable = false, length = 20)
-    private String firstName;
-     
-    @Column(name = "last_name", nullable = false, length = 20)
-    private String lastName;
+
+@Id      
+private int id;
+@Column(nullable = false, unique = true, length = 45)
+private String user;
+@Column(nullable = false)
+     @Column(nullable = false, unique = true, length = 45)
+private String email;
+@Column(nullable = false, length = 64)
+private String nome;
+@Column(nullable = true, length = 64)  
+private String telefone;
+@Column(nullable = true, length = 64)
+private String idade;
+@Column(nullable = true, length = 64)
+private String foto;
 
     public Cinefilo() {
         super();
     }
-
-    public Cinefilo(Long id, String email, String password, String firstName, String lastName) {
+    public Cinefilo(int id, String user, String email, String nome, String telefone, String idade, String foto) {
         this.id = id;
+        this.user = user;
         this.email = email;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.idade = idade;
+        this.foto = foto;
     }
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
-
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
-
+    public String getUser() {
+        return user;
+    }
+    public void setUser(String user) {
+        this.user = user;
+    }
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getPassword() {
-        return password;
+    public String getNome() {
+        return nome;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-
-    public String getFirstName() {
-        return firstName;
+    public String getTelefone() {
+        return telefone;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
-
-    public String getLastName() {
-        return lastName;
+    public String getIdade() {
+        return idade;
     }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setIdade(String idade) {
+        this.idade = idade;
     }
-
+    public String getFoto() {
+        return foto;
+    }
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 29 * hash + this.id;
         return hash;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -103,15 +98,11 @@ public class Cinefilo {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final User other = (User) obj;
-        if (!Objects.equals(this.id, other.id)) {
+        final Cinefilo other = (Cinefilo) obj;
+        if (this.id != other.id) {
             return false;
         }
         return true;
     }
-     
     
-     
-    
-
 }
