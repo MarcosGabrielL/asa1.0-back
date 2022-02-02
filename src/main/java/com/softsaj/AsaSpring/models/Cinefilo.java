@@ -4,62 +4,53 @@
  * and open the template in the editor.
  */
 package com.softsaj.AsaSpring.models;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.io.Serializable;
-import java.util.Objects;
-import javax.persistence.*;
-
 /**
  *
  * @author Marcos
  */
+
+import java.util.Objects;
+import javax.persistence.*;
+
+
 @Entity
 @Table(name = "cinefilos")
 public class Cinefilo {
-    
-@Id    
-private int id;
-@Column(nullable = false, unique = true, length = 45)
-private String user;
-@Column(nullable = false, unique = true, length = 45)
-private String email;
-@Column(nullable = false)
-private String nome;
-@Column(nullable = true)    
-private String telefone;
-@Column(nullable = true)  
-private String idade;
-@Column(nullable = true)  
-private String foto;
+     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+     
+    @Column(nullable = false, unique = true, length = 45)
+    private String email;
+     
+    @Column(nullable = false, length = 64)
+    private String password;
+     
+    @Column(name = "first_name", nullable = false, length = 20)
+    private String firstName;
+     
+    @Column(name = "last_name", nullable = false, length = 20)
+    private String lastName;
 
-    public Cinefilo() {
+    public User() {
         super();
     }
 
-    public Cinefilo(int id, String user, String email, String nome, String telefone, String idade, String foto) {
+    public User(Long id, String email, String password, String firstName, String lastName) {
         this.id = id;
-        this.user = user;
         this.email = email;
-        this.nome = nome;
-        this.telefone = telefone;
-        this.idade = idade;
-        this.foto = foto;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 
     public String getEmail() {
@@ -70,37 +61,57 @@ private String foto;
         this.email = email;
     }
 
-    public String getNome() {
-        return nome;
+    public String getPassword() {
+        return password;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getIdade() {
-        return idade;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setIdade(String idade) {
-        this.idade = idade;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getFoto() {
-        return foto;
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        return hash;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
+     
+    
+     
     
 
 }
