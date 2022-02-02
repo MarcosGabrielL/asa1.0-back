@@ -6,28 +6,22 @@
 package com.softsaj.AsaSpring.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.util.Objects;
+import javax.persistence.*;
 
 /**
  *
  * @author Marcos
  */
 @Entity
-public class Cinefilo implements Serializable {
+@Table(name = "cinefilos")
+public class Cinefilo {
     
-@Id   
-@GeneratedValue(strategy = GenerationType.IDENTITY)    
+@Id    
 private int id;
-@Column(nullable = false)
+@Column(nullable = false, unique = true, length = 45)
 private String user;
-@Column(nullable = false)
+@Column(nullable = false, unique = true, length = 45)
 private String email;
 @Column(nullable = false)
 private String nome;
@@ -107,32 +101,6 @@ private String foto;
     public void setFoto(String foto) {
         this.foto = foto;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + this.id;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Cinefilo other = (Cinefilo) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
-    }
-
     
 
 }
