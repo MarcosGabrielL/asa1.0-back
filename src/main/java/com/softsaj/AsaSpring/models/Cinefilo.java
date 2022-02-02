@@ -33,11 +33,11 @@ public class Cinefilo {
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
 
-    public User() {
+    public Cinefilo() {
         super();
     }
 
-    public User(Long id, String email, String password, String firstName, String lastName) {
+    public Cinefilo(Long id, String email, String password, String firstName, String lastName) {
         this.id = id;
         this.email = email;
         this.password = password;
