@@ -17,12 +17,13 @@ import javax.persistence.*;
 public class Cinefilo{
     
 @Id   
+@Column(nullable = false, unique = true, length = 45)
 private int id;
-@Column(nullable = false)
+@Column(nullable = false, unique = true, length = 45)
 private String user;
-@Column(nullable = false)
+@Column(nullable = false, unique = true, length = 45)
 private String email;
-@Column(nullable = false)
+@Column(nullable = false, unique = false, length = 45)
 private String nome;
 private String telefone;
 private String idade;
