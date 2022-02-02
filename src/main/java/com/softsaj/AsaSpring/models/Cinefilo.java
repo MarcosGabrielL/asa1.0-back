@@ -25,13 +25,13 @@ import javax.persistence.ManyToOne;
 public class Cinefilo implements Serializable{
     
 @Id   
-@Column(nullable = false, unique = true, length = 45)
+@GeneratedValue(strategy = GenerationType.IDENTITY)  
 private int id;
-@Column(nullable = false, unique = true, length = 45)
+@Column(nullable = false)
 private String user;
-@Column(nullable = false, unique = true, length = 45)
+@Column(nullable = false)
 private String email;
-@Column(nullable = false, unique = false, length = 45)
+@Column(nullable = false)
 private String nome;
 private String telefone;
 private String idade;
