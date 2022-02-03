@@ -82,7 +82,13 @@ public ResponseEntity<User> processRegister(@RequestBody User user) {
      
     User newUser = userRepo.save(user);
     
-    
+     //Cria Cinefilo
+    Cinefilo cinefilo = new Cinefilo();
+    cinefilo.setEmail(user.getEmail());
+    cinefilo.setId(user.getId());
+    cinefilo.setUsuario(user.getFirstName());
+    cinefilo.setNome(user.getFirstName()+" "+user.getLastName());
+    vs.addCinefilo(cinefilo);
     
      
     return new ResponseEntity<>(newUser, HttpStatus.CREATED);
