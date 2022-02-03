@@ -13,6 +13,7 @@ import javax.persistence.*;
  * @author Marcos
  */
 @Entity
+@Table(name = "cinefilos")
 public class Cinefilo{
     
 @Id   
