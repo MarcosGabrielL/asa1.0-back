@@ -37,7 +37,7 @@ public class Cinefilo {
         super();
     }
 
-    public Cinefilo(Long id, String email, String password, String firstName, String lastName,  String nome, String telefone, String idade, String foto,String user,) {
+    public Cinefilo(Long id, String email, String password, String firstName, String lastName,  String nome, String telefone, String idade, String foto,String user) {
         this.id = id;
         this.email = email;
         this.password = password;
