@@ -24,6 +24,11 @@ public class Cinefilo {
      
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
+     
+     private String nome;
+     private String telefone;
+     private String idade;
+     private String foto;
 
     public Cinefilo() {
         super();
