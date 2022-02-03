@@ -95,7 +95,7 @@ public class Cinefilo {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Cinefilo other = (Cienfilo) obj;
+        final Cinefilo other = (Cinefilo) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
