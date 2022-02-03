@@ -13,8 +13,6 @@ public class Cinefilo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = true, unique = true, length = 45)
-    private String user;
      
     @Column(nullable = true, unique = true, length = 45)
     private String email;
@@ -37,7 +35,7 @@ public class Cinefilo {
         super();
     }
 
-    public Cinefilo(Long id, String email, String password, String firstName, String lastName,  String nome, String telefone, String idade, String foto,String user) {
+    public Cinefilo(Long id, String email, String password, String firstName, String lastName,  String nome, String telefone, String idade, String foto) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -47,7 +45,6 @@ public class Cinefilo {
         this.telefone = telefone;
         this.idade = idade;
         this.foto = foto;
-         this.user = user;
     }
 
     public Long getId() {
@@ -90,13 +87,7 @@ public class Cinefilo {
         this.lastName = lastName;
     }
      
-     public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
+    
      public String getNome() {
         return nome;
     }
