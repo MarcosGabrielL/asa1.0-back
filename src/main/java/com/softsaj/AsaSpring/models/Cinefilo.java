@@ -13,16 +13,16 @@ public class Cinefilo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
      
-    @Column(nullable = false, unique = true, length = 45)
+    @Column(nullable = true, unique = true, length = 45)
     private String email;
      
-    @Column(nullable = false, length = 64)
+    @Column(nullable = true, length = 64)
     private String password;
      
-    @Column(name = "first_name", nullable = false, length = 20)
+    @Column(name = "first_name", nullable = true, length = 20)
     private String firstName;
      
-    @Column(name = "last_name", nullable = false, length = 20)
+    @Column(name = "last_name", nullable = true, length = 20)
     private String lastName;
      
      private String nome;
@@ -34,12 +34,16 @@ public class Cinefilo {
         super();
     }
 
-    public Cinefilo(Long id, String email, String password, String firstName, String lastName) {
+    public Cinefilo(Long id, String email, String password, String firstName, String lastName,  String nome, String telefone, String idade, String foto) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+          this.nome = nome;
+        this.telefone = telefone;
+        this.idade = idade;
+        this.foto = foto;
     }
 
     public Long getId() {
