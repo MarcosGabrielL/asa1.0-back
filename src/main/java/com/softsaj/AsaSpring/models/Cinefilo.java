@@ -117,7 +117,7 @@ private String foto;
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Comentario other = (Comentario) obj;
+        final Cinefilo other = (Cinefilo) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
