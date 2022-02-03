@@ -17,7 +17,6 @@ import javax.persistence.*;
 public class Cinefilo{
     
 @Id   
-@GeneratedValue(strategy = GenerationType.IDENTITY)   
 private int id;
 @Column(nullable = false)
 private String user;
