@@ -36,7 +36,7 @@ public class CinefiloController {
     
     //GEt Cinefilo
      @GetMapping("/cinefilo/{id}")
-    public ResponseEntity<Cinefilo> getCienfiloById (@PathVariable("id") Integer id) {
+    public ResponseEntity<Cinefilo> getCienfiloById (@PathVariable("id") Long id) {
         Cinefilo cinefilo = vs.findCienfiloById(id);
         return new ResponseEntity<>(cinefilo, HttpStatus.OK);
     }
@@ -53,7 +53,7 @@ public class CinefiloController {
     
     //Update nome,telefone,idade,foto;
     @PutMapping("/cinefilo/update/{id}")
-    public ResponseEntity<Cinefilo> updateCinefilo(@PathVariable("id") Integer id, @RequestBody Cinefilo newcinefilo) {
+    public ResponseEntity<Cinefilo> updateCinefilo(@PathVariable("id") Long id, @RequestBody Cinefilo newcinefilo) {
         Cinefilo cinefilo = vs.findCienfiloById(id);
         cinefilo.setNome(newcinefilo.getNome());
         cinefilo.setTelefone(newcinefilo.getTelefone());
@@ -65,7 +65,7 @@ public class CinefiloController {
     
     @Transactional
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteCinefilo(@PathVariable("id") Integer id) {
+    public ResponseEntity<?> deleteCinefilo(@PathVariable("id") Long id) {
         vs.deleteCinefilo(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
