@@ -15,9 +15,9 @@ import org.springframework.stereotype.Repository;
  * @author Marcos
  */
 @Repository
-public interface CinefiloRepository extends JpaRepository<Cinefilo, Integer>{
+public interface CinefiloRepository extends JpaRepository<Cinefilo, Long>{
     
-     Optional<Cinefilo> findCinefiloById(Integer id);
+     Optional<Cinefilo> findCinefiloById(Long id);
      
-     void deleteCinefiloById(Integer id);
+     void deleteCinefiloById(Long id);
 }
