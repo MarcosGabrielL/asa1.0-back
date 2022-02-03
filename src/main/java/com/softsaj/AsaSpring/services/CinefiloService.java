@@ -29,7 +29,7 @@ public class CinefiloService {
         return rp.findAll();
     }
      
-     public Cinefilo findCienfiloById(Integer id) {
+     public Cinefilo findCienfiloById(Long id) {
         return rp.findCinefiloById(id)
                 .orElseThrow(() -> new UserNotFoundException("Cinefilo by id " + id + " was not found"));
     }
@@ -42,7 +42,7 @@ public class CinefiloService {
         return rp.save(cinefilo);
     }
       
-      public void deleteCinefilo(Integer id){
+      public void deleteCinefilo(Long id){
         try{
           rp.deleteCinefiloById(id);  
         }catch(DataIntegrityViolationException e){
