@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Cinefilo{
     
 @Id   
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+@GeneratedValue(strategy = GenerationType.IDENTITY)   
 private int id;
 @Column(nullable = false)
 private String user;
@@ -101,8 +101,8 @@ private String foto;
 
      @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + this.id;
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -117,8 +117,8 @@ private String foto;
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Cinefilo other = (Cinefilo) obj;
-        if (this.id != other.id) {
+        final Comentario other = (Comentario) obj;
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
