@@ -12,6 +12,9 @@ public class Cinefilo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(nullable = true, unique = true, length = 45)
+    private String user;
      
     @Column(nullable = true, unique = true, length = 45)
     private String email;
@@ -34,7 +37,7 @@ public class Cinefilo {
         super();
     }
 
-    public Cinefilo(Long id, String email, String password, String firstName, String lastName,  String nome, String telefone, String idade, String foto) {
+    public Cinefilo(Long id, String email, String password, String firstName, String lastName,  String nome, String telefone, String idade, String foto,String user,) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -44,6 +47,7 @@ public class Cinefilo {
         this.telefone = telefone;
         this.idade = idade;
         this.foto = foto;
+         this.user = user;
     }
 
     public Long getId() {
@@ -85,6 +89,46 @@ public class Cinefilo {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+     
+     public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+     public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getIdade() {
+        return idade;
+    }
+
+    public void setIdade(String idade) {
+        this.idade = idade;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
 
     @Override
     public int hashCode() {
