@@ -55,10 +55,10 @@ public class CinefiloController {
     @PutMapping("/cinefilo/update/{id}")
     public ResponseEntity<Cinefilo> updateCinefilo(@PathVariable("id") Long id, @RequestBody Cinefilo newcinefilo) {
         Cinefilo cinefilo = vs.findCienfiloById(id);
-        cinefilo.setNome(newcinefilo.getNome());
-        cinefilo.setTelefone(newcinefilo.getTelefone());
-        cinefilo.setIdade(newcinefilo.getIdade());
-        cinefilo.setFoto(newcinefilo.getFoto());
+      //  cinefilo.setNome(newcinefilo.getNome());
+      //  cinefilo.setTelefone(newcinefilo.getTelefone());
+//cinefilo.setIdade(newcinefilo.getIdade());
+      //  cinefilo.setFoto(newcinefilo.getFoto());
         Cinefilo updateCinefilo = vs.updateCinefilo(cinefilo);//s
         return new ResponseEntity<>(updateCinefilo, HttpStatus.OK);
     }
