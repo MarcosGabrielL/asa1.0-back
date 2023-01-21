@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  multicte:
+    build: .
+    image: multicte_img
+    container_name: multicte_cont
+    ports:
+        - "8084:8080"
+    tty: true
+    environment:
+        - LOGGING_PATH=/tmp/logs
+        - APP_PORT=8080
+    volumes:
+        - /home/multicte.app/volume/logs:/tmp/logs
+        - /home/multicte.app/volume/.m2:/root/.m2

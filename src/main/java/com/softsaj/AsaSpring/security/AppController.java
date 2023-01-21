@@ -10,11 +10,15 @@ package com.softsaj.AsaSpring.security;
  * @author Marcos
  */
 import com.softsaj.AsaSpring.models.Cinefilo;
+import com.softsaj.AsaSpring.models.Torrent;
 import com.softsaj.AsaSpring.security.UserRepository;
 import com.softsaj.AsaSpring.security.AuthRequest;
 import com.softsaj.AsaSpring.security.User;
 import com.softsaj.AsaSpring.security.JwtUtil;
 import com.softsaj.AsaSpring.services.CinefiloService;
+import com.softsaj.AsaSpring.services.SearchMoviesTorrent;
+import com.softsaj.AsaSpring.util.convertHtmlIntoData;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -45,6 +49,7 @@ public class AppController {
 	
     @GetMapping("")
     public String viewHomePage() {
+    	
         return "index";
     }
 
@@ -108,5 +113,12 @@ public ResponseEntity<User> processRegister(@RequestBody User user) {
         User user = userRepo.findByEmail(email);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+ 
+ @GetMapping("/movies/torrents/{query}/{query_en}")
+ public ResponseEntity<?> getTorrentsMovie (@PathVariable("query") String query,
+		 @PathVariable("query_en") String query_en) {
+    int Codido_Category_Movie = 201;
+     return new ResponseEntity<>(new SearchMoviesTorrent().SearchTorrents(query, query_en, Codido_Category_Movie), HttpStatus.OK);
+ }
 
 }
